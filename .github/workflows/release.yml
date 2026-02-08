@@ -20,9 +20,6 @@ jobs:
           - os: macos-15
             target: macos-aarch64
             binary: mycli
-          - os: macos-15-intel
-            target: macos-x86_64
-            binary: mycli
           - os: windows-latest
             target: windows-x86_64
             binary: mycli.exe
