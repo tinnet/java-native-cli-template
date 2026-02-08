@@ -7,7 +7,7 @@ assertj = "3.27.7"
 errorprone = "2.46.0"
 errorprone-plugin = "5.0.0"
 graalvm-native = "0.11.4"
-spotless = "8.2.0"
+spotless = "8.2.1"
 palantir-java-format = "2.86.0"
 jreleaser = "1.22.0"
 
