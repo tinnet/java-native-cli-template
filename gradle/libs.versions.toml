@@ -7,7 +7,7 @@ assertj = "3.27.7"
 errorprone = "2.46.0"
 errorprone-plugin = "5.0.0"
 graalvm-native = "0.11.4"
-spotless = "6.25.0"
+spotless = "8.2.0"
 palantir-java-format = "2.86.0"
 # jreleaser = "1.22.0"  # Applied directly in settings.gradle.kts
 
@@ -27,6 +27,7 @@ jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 
 # --- Optional libraries (uncomment to use) ---
