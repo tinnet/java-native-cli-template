@@ -1,0 +1,28 @@
+# Gradle
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Native image output
+*.exe
+*.dll
+*.dylib
+*.so
+
+# Runtime
+*.log
+hs_err_pid*
