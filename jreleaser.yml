@@ -19,6 +19,8 @@ project:
 release:
   github:
     overwrite: true
+    milestone:
+      close: false
     changelog:
       formatted: ALWAYS
       preset: conventional-commits

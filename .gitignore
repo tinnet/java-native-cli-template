@@ -22,6 +22,10 @@ Thumbs.db
 *.dylib
 *.so
 
+# JReleaser
+out/
+artifacts/
+
 # Runtime
 *.log
 hs_err_pid*

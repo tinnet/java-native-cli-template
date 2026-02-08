@@ -33,6 +33,18 @@ gradle spotlessCheck      # check formatting (used in CI)
 gradle test               # run tests only
 ```
 
+### mise Tasks
+
+If you use [mise](https://mise.jdx.dev/), you can also run:
+
+```bash
+mise run build              # compile + test
+mise run test               # run tests only
+mise run format             # auto-format (alias: fmt)
+mise run lint               # check formatting
+mise run package            # build native binary (alias: pkg)
+```
+
 ## What's Included
 
 | Component | What | Version |
