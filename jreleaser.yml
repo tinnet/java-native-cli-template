@@ -13,10 +13,6 @@ project:
   license: MIT
   links:
     homepage: https://github.com/OWNER/mycli
-  java:
-    groupId: com.example
-    artifactId: mycli
-    version: 25
   versionPattern: CALVER:YYYY.0M.0D
 
 release:
@@ -25,25 +21,6 @@ release:
     changelog:
       formatted: ALWAYS
       preset: conventional-commits
-
-assemble:
-  nativeImage:
-    mycli:
-      active: ALWAYS
-      exported: true
-      java:
-        version: 25
-      graal:
-        version: '25'
-      mainJar:
-        path: build/libs/mycli-{{projectVersion}}.jar
-      graalJdks:
-        - path: '{{jdkPathPrefix}}'
-          platform: linux-x86_64
-        - path: '{{jdkPathPrefix}}'
-          platform: osx-aarch_64
-        - path: '{{jdkPathPrefix}}'
-          platform: windows-x86_64
 
 distributions:
   mycli:
