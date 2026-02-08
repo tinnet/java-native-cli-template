@@ -26,6 +26,12 @@ Thumbs.db
 out/
 artifacts/
 
+# Claude Code
+.claude/
+
+# Environment
+.env
+
 # Runtime
 *.log
 hs_err_pid*

@@ -7,7 +7,7 @@ This is a GitHub template repository for building Java CLI applications with Gra
 ## Tech Stack
 
 - **Java 25** (LTS, language level 25)
-- **Gradle 8.x** with Kotlin DSL and version catalogs (`gradle/libs.versions.toml`)
+- **Gradle 9.x** with Kotlin DSL and version catalogs (`gradle/libs.versions.toml`)
 - **GraalVM native-image** via `native-build-tools` plugin
 - **Picocli** for CLI framework with `picocli-codegen` annotation processor
 - **JLine 3** for terminal handling (completion, history, colors)
@@ -20,10 +20,10 @@ This is a GitHub template repository for building Java CLI applications with Gra
 ## Build Commands
 
 ```bash
-./gradlew build              # Compile + test (JVM mode)
-./gradlew nativeCompile      # Build native binary
-./gradlew spotlessApply      # Auto-format code
-./gradlew spotlessCheck      # Check formatting (CI)
+gradle build              # Compile + test (JVM mode)
+gradle nativeCompile      # Build native binary
+gradle spotlessApply      # Auto-format code
+gradle spotlessCheck      # Check formatting (CI)
 ```
 
 ## Versioning

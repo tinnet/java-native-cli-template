@@ -76,10 +76,12 @@ After clicking "Use this template":
 
 1. **Binary name** - rename `rootProject.name` in `settings.gradle.kts`
 2. **Package** - rename `com.example.cli` to your own package
-3. **Main class** - update `mainClass` in `build.gradle.kts`
-4. **Command name** - update `@Command(name = ...)` in `App.java`
-5. **JReleaser** - update `jreleaser.yml` with your GitHub owner/repo
-6. **Example command** - delete `GreetCommand.java` and add your own
+3. **Group** - update `group` in `build.gradle.kts` and the `resource-config.json` path
+4. **Main class** - update `mainClass` in `build.gradle.kts`
+5. **Command name** - update `@Command(name = ...)` in `App.java`
+6. **JReleaser** - update `jreleaser.yml` (owner, repo, authors, homepage)
+7. **License** - update the copyright holder in `LICENSE`
+8. **Example command** - delete `GreetCommand.java` and add your own
 
 ## Adding a Subcommand
 
@@ -129,7 +131,7 @@ git push --tags       # triggers release workflow
 
 When you push a CalVer tag, GitHub Actions will:
 
-1. Build native binaries on Linux, macOS (arm64 + x86_64), and Windows
+1. Build native binaries on Linux, macOS (arm64), and Windows
 2. Create a GitHub Release with the binaries
 3. Update your Homebrew tap (configure in `jreleaser.yml`)
 
