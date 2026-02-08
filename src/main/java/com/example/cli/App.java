@@ -1,5 +1,6 @@
 package com.example.cli;
 
+import com.example.cli.commands.GreetCommand;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -10,7 +11,8 @@ import picocli.CommandLine.Spec;
         name = "mycli",
         mixinStandardHelpOptions = true,
         versionProvider = VersionProvider.class,
-        description = "A CLI application built with Picocli and GraalVM native-image.")
+        description = "A CLI application built with Picocli and GraalVM native-image.",
+        subcommands = {GreetCommand.class})
 public class App implements Callable<Integer> {
 
     @Spec
