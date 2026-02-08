@@ -11,6 +11,7 @@ project:
   authors:
     - Your Name
   license: MIT
+  copyright: The authors
   links:
     homepage: https://github.com/OWNER/mycli
   versionPattern: CALVER:YYYY.0M.0D
