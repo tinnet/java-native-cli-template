@@ -43,8 +43,6 @@ assemble:
         - path: '{{jdkPathPrefix}}'
           platform: osx-aarch_64
         - path: '{{jdkPathPrefix}}'
-          platform: osx-x86_64
-        - path: '{{jdkPathPrefix}}'
           platform: windows-x86_64
 
 distributions:
@@ -55,8 +53,6 @@ distributions:
         platform: linux-x86_64
       - path: artifacts/mycli-macos-aarch64.tar.gz
         platform: osx-aarch_64
-      - path: artifacts/mycli-macos-x86_64.tar.gz
-        platform: osx-x86_64
       - path: artifacts/mycli-windows-x86_64.zip
         platform: windows-x86_64
 

@@ -77,17 +77,10 @@ jobs:
           path: artifacts
           merge-multiple: true
 
-      - uses: graalvm/setup-graalvm@v1
-        with:
-          java-version: '25'
-          distribution: 'graalvm-community'
-
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.3.1'
-
       - name: JReleaser release
+        uses: jreleaser/release-action@v2
+        with:
+          arguments: full-release
         env:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JRELEASER_PROJECT_VERSION: ${{ github.ref_name }}
-        run: gradle jreleaserFullRelease
