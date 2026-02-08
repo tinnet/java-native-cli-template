@@ -41,20 +41,20 @@ jobs:
       - name: Build native image
         run: gradle nativeCompile
 
-      - name: Package binary
-        shell: bash
+      - name: Package binary (unix)
+        if: runner.os != 'Windows'
         env:
           TARGET: ${{ matrix.target }}
           BINARY: ${{ matrix.binary }}
-        run: |
-          mkdir -p dist
-          cp "build/native/nativeCompile/${BINARY}" dist/
-          cd dist
-          if [ "${TARGET}" = "windows-x86_64" ]; then
-            zip "../mycli-${TARGET}.zip" "${BINARY}"
-          else
-            tar czf "../mycli-${TARGET}.tar.gz" "${BINARY}"
-          fi
+        run: tar czf "mycli-${TARGET}.tar.gz" -C build/native/nativeCompile "${BINARY}"
+
+      - name: Package binary (windows)
+        if: runner.os == 'Windows'
+        env:
+          TARGET: ${{ matrix.target }}
+          BINARY: ${{ matrix.binary }}
+        shell: pwsh
+        run: Compress-Archive -Path "build/native/nativeCompile/$env:BINARY" -DestinationPath "mycli-$env:TARGET.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
