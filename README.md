@@ -133,17 +133,18 @@ When you push a CalVer tag, GitHub Actions will:
 
 1. Build native binaries on Linux, macOS (arm64), and Windows
 2. Create a GitHub Release with the binaries
-3. Update your Homebrew tap (configure in `jreleaser.yml`)
 
-### Homebrew Setup
+### Installing with mise
 
-1. Create a `homebrew-tap` repository on your GitHub account
-2. Update `jreleaser.yml` with your GitHub owner
-3. Push a tag to trigger the release
+Because the release produces platform-specific tarballs/zips with standard naming, users can install your CLI directly using mise's [GitHub backend](https://mise.jdx.dev/dev-tools/backends/github.html) — no registry submission or extra config needed:
 
-### aqua / mise
+```bash
+mise use -g github:OWNER/mycli
+```
 
-Register your tool with the [aqua registry](https://github.com/aquaproj/aqua-registry) by submitting a PR. Since mise reimplements aqua's registry, your tool will be installable via both.
+mise automatically detects the right binary for the user's OS and architecture from the GitHub release assets.
+
+For wider distribution, you can also register with the [aqua registry](https://github.com/aquaproj/aqua-registry) by submitting a PR. Since mise reimplements aqua's registry, your tool will then be installable as simply `mise use mycli`.
 
 ## Project Structure
 
