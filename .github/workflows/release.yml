@@ -57,7 +57,7 @@ jobs:
         run: Compress-Archive -Path "build/native/nativeCompile/$env:BINARY" -DestinationPath "mycli-$env:TARGET.zip"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: mycli-${{ matrix.target }}
           path: mycli-${{ matrix.target }}.*
