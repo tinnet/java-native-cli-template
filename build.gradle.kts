@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.graalvm.native)
     alias(libs.plugins.spotless)
     alias(libs.plugins.errorprone)
+    alias(libs.plugins.jreleaser)
 }
 
 // ── CalVer from git tags (no SNAPSHOT dance) ────────────────────────────

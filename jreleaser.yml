@@ -1,0 +1,69 @@
+# JReleaser configuration
+# Docs: https://jreleaser.org/guide/latest/index.html
+#
+# Template users: update the project section and packagers
+# with your own repository details.
+
+project:
+  name: mycli
+  description: A CLI application built with Picocli and GraalVM native-image.
+  longDescription: A CLI application built with Picocli and GraalVM native-image.
+  authors:
+    - Your Name
+  license: MIT
+  links:
+    homepage: https://github.com/OWNER/mycli
+  java:
+    groupId: com.example
+    artifactId: mycli
+    version: 25
+  versionPattern: CALVER:YYYY.0M.0D
+
+release:
+  github:
+    overwrite: true
+    changelog:
+      formatted: ALWAYS
+      preset: conventional-commits
+
+assemble:
+  nativeImage:
+    mycli:
+      active: ALWAYS
+      exported: true
+      java:
+        version: 25
+      graal:
+        version: '25'
+      mainJar:
+        path: build/libs/mycli-{{projectVersion}}.jar
+      graalJdks:
+        - path: '{{jdkPathPrefix}}'
+          platform: linux-x86_64
+        - path: '{{jdkPathPrefix}}'
+          platform: osx-aarch_64
+        - path: '{{jdkPathPrefix}}'
+          platform: osx-x86_64
+        - path: '{{jdkPathPrefix}}'
+          platform: windows-x86_64
+
+distributions:
+  mycli:
+    type: NATIVE_IMAGE
+    artifacts:
+      - path: artifacts/mycli-linux-x86_64.tar.gz
+        platform: linux-x86_64
+      - path: artifacts/mycli-macos-aarch64.tar.gz
+        platform: osx-aarch_64
+      - path: artifacts/mycli-macos-x86_64.tar.gz
+        platform: osx-x86_64
+      - path: artifacts/mycli-windows-x86_64.zip
+        platform: windows-x86_64
+
+packagers:
+  brew:
+    active: ALWAYS
+    # Template users: create a homebrew-tap repo and update this
+    repository:
+      owner: OWNER
+      name: homebrew-tap

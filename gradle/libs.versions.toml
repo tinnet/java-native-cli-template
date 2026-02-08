@@ -9,7 +9,7 @@ errorprone-plugin = "5.0.0"
 graalvm-native = "0.11.4"
 spotless = "8.2.0"
 palantir-java-format = "2.86.0"
-# jreleaser = "1.22.0"  # Applied directly in settings.gradle.kts
+jreleaser = "1.22.0"
 
 # --- Optional libraries (uncomment to use) ---
 # jackson = "2.21.0"          # JSON/YAML serialization
@@ -43,3 +43,4 @@ assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 graalvm-native = { id = "org.graalvm.buildtools.native", version.ref = "graalvm-native" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone-plugin" }
+jreleaser = { id = "org.jreleaser", version.ref = "jreleaser" }
