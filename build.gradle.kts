@@ -18,7 +18,7 @@ val gitVersion: String by lazy {
             .redirectErrorStream(true)
             .start()
         val output = process.inputStream.bufferedReader().readText().trim()
-        if (process.waitFor() == 0 && output.isNotEmpty()) output else "dev"
+        if (process.waitFor() == 0 && output.isNotEmpty()) output.removePrefix("v") else "dev"
     } catch (_: Exception) {
         "dev"
     }

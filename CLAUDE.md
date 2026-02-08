@@ -28,7 +28,7 @@ This is a GitHub template repository for building Java CLI applications with Gra
 
 ## Versioning
 
-- CalVer format: `YYYY.MM.DD` derived from git tags
+- CalVer format: `vYYYY.MM.DD` derived from git tags (v prefix stripped for version number)
 - No tag → version is `dev`
 - No SNAPSHOT workflow — just tag and push
 

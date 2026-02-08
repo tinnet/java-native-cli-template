@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    tags: ['20*']  # CalVer tags like 2025.06.15
+    tags: ['v20*']  # CalVer tags like v2025.06.15
 
 permissions:
   contents: write

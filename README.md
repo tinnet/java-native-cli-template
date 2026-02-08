@@ -103,13 +103,13 @@ Then register it in `App.java`:
 
 This template uses **CalVer** (calendar versioning) derived from git tags:
 
-- Tag format: `YYYY.MM.DD` (e.g., `2025.06.15`)
-- Same-day releases: `2025.06.15.1`, `2025.06.15.2`, etc.
+- Tag format: `vYYYY.MM.DD` (e.g., `v2025.06.15`)
+- Same-day releases: `v2025.06.15.1`, `v2025.06.15.2`, etc.
 - No tag = `dev` version (local development)
 - No SNAPSHOT workflow
 
 ```bash
-git tag 2025.06.15
+git tag v2025.06.15
 git push --tags       # triggers release workflow
 ```
 
