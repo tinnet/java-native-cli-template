@@ -1,0 +1,96 @@
+name: Release
+
+on:
+  push:
+    tags: ['20*']  # CalVer tags like 2025.06.15
+
+permissions:
+  contents: write
+
+jobs:
+  build-native:
+    name: Build native image
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: linux-x86_64
+            binary: mycli
+          - os: macos-15
+            target: macos-aarch64
+            binary: mycli
+          - os: macos-13
+            target: macos-x86_64
+            binary: mycli
+          - os: windows-latest
+            target: windows-x86_64
+            binary: mycli.exe
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '25'
+          distribution: 'graalvm-community'
+          native-image-job-reports: 'true'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Build native image
+        run: gradle nativeCompile
+
+      - name: Package binary
+        shell: bash
+        env:
+          TARGET: ${{ matrix.target }}
+          BINARY: ${{ matrix.binary }}
+        run: |
+          mkdir -p dist
+          cp "build/native/nativeCompile/${BINARY}" dist/
+          cd dist
+          if [ "${TARGET}" = "windows-x86_64" ]; then
+            zip "../mycli-${TARGET}.zip" "${BINARY}"
+          else
+            tar czf "../mycli-${TARGET}.tar.gz" "${BINARY}"
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mycli-${{ matrix.target }}
+          path: mycli-${{ matrix.target }}.*
+
+  release:
+    name: Create Release
+    needs: build-native
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '25'
+          distribution: 'graalvm-community'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: JReleaser release
+        env:
+          JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JRELEASER_PROJECT_VERSION: ${{ github.ref_name }}
+        run: gradle jreleaserFullRelease
