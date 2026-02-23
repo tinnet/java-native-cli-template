@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    format:
+      run: gradle spotlessApply
+      stage_fixed: true

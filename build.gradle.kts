@@ -91,11 +91,10 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// ── Spotless (Palantir Java Format) ─────────────────────────────────────
+// ── Spotless (Google Java Format) ────────────────────────────────────────
 spotless {
     java {
-        palantirJavaFormat()
-        importOrder()
+        googleJavaFormat()
         removeUnusedImports()
     }
 }

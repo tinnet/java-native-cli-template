@@ -13,7 +13,7 @@ This is a GitHub template repository for building Java CLI applications with Gra
 - **JLine 3** for terminal handling (completion, history, colors)
 - **JUnit 6** + **AssertJ** for testing
 - **JSpecify** for null safety (`@NullMarked` at package level)
-- **Palantir Java Format** via Spotless plugin (4-space indent, 120 columns)
+- **Google Java Format** via Spotless plugin (2-space indent)
 - **Error Prone** for compile-time static analysis
 - **JReleaser** for releases (Homebrew tap, GitHub Releases)
 
@@ -36,7 +36,7 @@ gradle spotlessCheck      # Check formatting (CI)
 
 - All packages use `@NullMarked` (JSpecify) in `package-info.java`
 - Use `@Nullable` only where nulls are explicitly intended
-- Palantir Java Format: 4-space indent, 120-column width
+- Google Java Format: 2-space indent
 - Conventional commits: `feat:`, `fix:`, `build:`, `ci:`, `docs:`, `refactor:`, `test:`
 - Tests use AssertJ fluent assertions (`assertThat(...)`)
 - Tests are committed alongside their feature in the same commit
