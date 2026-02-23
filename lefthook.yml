@@ -3,3 +3,5 @@ pre-commit:
     format:
       run: gradle spotlessApply
       stage_fixed: true
+    secrets:
+      run: gitleaks git --staged --no-banner

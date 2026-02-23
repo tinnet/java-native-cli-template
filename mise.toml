@@ -3,6 +3,7 @@ java = "graalvm-community-25"
 gradle = "9.3.1"
 jreleaser = "latest"
 lefthook = "latest"
+gitleaks = "latest"
 
 [tasks.build]
 description = "Compile and test"
