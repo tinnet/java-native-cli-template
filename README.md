@@ -1,3 +1,15 @@
+> [!IMPORTANT]
+> **This repository is archived and no longer maintained.** A template goes stale as soon as it's
+> written, so it has been replaced by the `project-tooling` skill in
+> [tinnet/claude-plugins](https://github.com/tinnet/claude-plugins): it describes the tooling and
+> must-haves (including a Java native CLI guide) and Claude Code sets up new projects from it with
+> current versions.
+>
+> ```
+> /plugin marketplace add tinnet/claude-plugins
+> /plugin install project-tooling@tinnet
+> ```
+
 # java-native-cli-template
 
 A GitHub template for building Java CLI applications that compile to native executables via GraalVM native-image.
